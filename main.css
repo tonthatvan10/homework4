@@ -14,7 +14,7 @@ body{
     margin-top: 10%;
     width: 480px;
     height: 360px;
-     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
 }
 .shiken{
     position: absolute;
@@ -44,7 +44,8 @@ body{
     right: 10%;
     height: 30%;
     width: 30%;
-    transition: 1.5s;
+    transition-duration: 1s;
+    transition-timing-function: ease;
 }
 .yomi{
     display: block;
@@ -68,7 +69,7 @@ body{
     background-color: aliceblue;
     z-index: 2;
 }
-.container>span{
+.background{
     position: absolute;
     top: 0;
     left: 0;
@@ -77,12 +78,41 @@ body{
     width: 100%;
     height: 100%;
     z-index: -10;
-    transition: 1s;
+    transition: 1s linear;
 }
-.container:hover .container>span{
+.container:hover{
+    cursor: pointer;
+    transition-property: all;
+}
+.container:hover .background{
+    position: absolute;
     z-index: 2;
     opacity: 0.5;
 }
-.note:hover{
-    z-index: 2;
+.container:hover .note{
+    z-index: 3;
+}
+
+.white-st::before{
+    position: absolute;
+    top: -300px;
+    right: -470px;
+    rotate: 50deg;
+    width: 800px;
+    height: 300px;
+    background-color: white;
+    opacity: 0.5;
+    z-index: 100;
+    transition: 1s;
+}
+
+.loading{
+    background-color: aqua;
+    z-index: 100000;
+}
+
+.container:hover .white-st::before{
+    position: absolute;
+    bottom: -300px;
+    left: -470px;
 }
